@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ColoritSummer.Data.MySQL.Context
 {
-    internal class ColoritSummerDbContext : DbContext
+    public class ColoritSummerDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 

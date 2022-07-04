@@ -5,23 +5,23 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummer.TestConsole", "TestConsole\ColoritSummer.TestConsole.csproj", "{38F6AEEF-5B26-4C9C-89F6-1C269A1E62EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoritSummer.Data.MySQL", "ColoritSummer.Data.MySQL\ColoritSummer.Data.MySQL.csproj", "{84B4E001-D5AE-48F1-9C57-4E2B5B73F80C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummer.Data.MySQL", "ColoritSummer.Data.MySQL\ColoritSummer.Data.MySQL.csproj", "{84B4E001-D5AE-48F1-9C57-4E2B5B73F80C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{DCFC3D47-3424-4B3F-9C9C-39192508AA91}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{42521B52-FE33-4530-B8ED-D3C8914C152C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoritSummer.WPF", "ColoritSummer.WPF\ColoritSummer.WPF.csproj", "{DE02E88B-EE89-410B-814C-C32A1C112151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummer.WPF", "ColoritSummer.WPF\ColoritSummer.WPF.csproj", "{DE02E88B-EE89-410B-814C-C32A1C112151}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{DF58981B-A33C-4B91-B141-D3BA8C8FC9F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoritSummre.WebAPI", "ColoritSummre.WebAPI\ColoritSummre.WebAPI.csproj", "{71226B8B-88F7-457D-B118-B1E179FF4B27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummer.WebAPI", "ColoritSummre.WebAPI\ColoritSummer.WebAPI.csproj", "{71226B8B-88F7-457D-B118-B1E179FF4B27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoritSummer.Interfaces", "ColoritSummer.Interfaces\ColoritSummer.Interfaces.csproj", "{58343336-F209-4C88-8D4F-1D61ECB6FED4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummer.Interfaces", "ColoritSummer.Interfaces\ColoritSummer.Interfaces.csproj", "{58343336-F209-4C88-8D4F-1D61ECB6FED4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoritSummery.WebAPIClient", "ColoritSummery.WebAPIClient\ColoritSummery.WebAPIClient.csproj", "{D9A6E0D7-CD6B-4251-A48F-E0D31FFBDF88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummery.WebAPIClient", "ColoritSummery.WebAPIClient\ColoritSummery.WebAPIClient.csproj", "{D9A6E0D7-CD6B-4251-A48F-E0D31FFBDF88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoritSummer.Models", "ColoritSummer.Models\ColoritSummer.Models.csproj", "{DF619DC6-01D6-41D2-BCC7-A28A6DC8F28B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColoritSummer.Models", "ColoritSummer.Models\ColoritSummer.Models.csproj", "{DF619DC6-01D6-41D2-BCC7-A28A6DC8F28B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
