@@ -21,8 +21,6 @@ namespace ColoritSummer.Interfaces.Repositories
 
         Task<T> Update(T item, CancellationToken cancel = default);
 
-        Task<T> Delete(T item, CancellationToken cancel = default);
-
         Task<T> DeleteById(int id, CancellationToken cancel = default);
     }
 }

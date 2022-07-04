@@ -9,8 +9,8 @@ namespace ColoritSummer.Interfaces.Repositories
 {
     public interface IUserRepository<T> : IRepository<T> where T : IUserEntity 
     {
-        Task<T> GetByEmail(string name, CancellationToken cancel = default);
-        Task<T> DeleteByEmail(string name, CancellationToken cancel = default);
-        Task<bool> ExistEmail(string name, CancellationToken cancel = default);
+        Task<T> GetByEmail(string email, CancellationToken cancel = default);
+        Task<T> DeleteByEmail(string email, CancellationToken cancel = default);
+        Task<bool> ExistEmail(string email, CancellationToken cancel = default);
     }
 }
