@@ -1,4 +1,6 @@
 ﻿using ColoritSummer.Data.MySQL.Context;
+using ColoritSummer.Data.MySQL.Repositories;
+using ColoritSummer.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -11,6 +13,9 @@ namespace ColoritSummer.WebAPI
             var connectionString = configuration.GetConnectionString("MySQLDatabase");
             services.AddDbContext<ColoritSummerDbContext>(opt => 
             opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+            services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
+            services.AddScoped(typeof(IUserRepository<>), typeof(DbUserRepository<>));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

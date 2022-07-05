@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ColoritSummer.Data.MySQL.Repositories
 {
-    public class UserRepository<T> : Repository<T>, IUserRepository<T> where T : UserEntity, new()
+    public class DbUserRepository<T> : DbRepository<T>, IUserRepository<T> where T : UserEntity, new()
     {
-        public UserRepository(ColoritSummerDbContext context) : base(context) { }
+        public DbUserRepository(ColoritSummerDbContext context) : base(context) { }
 
         public async Task<T> DeleteByEmail(string email, CancellationToken cancel = default)
         {
@@ -32,12 +32,7 @@ namespace ColoritSummer.Data.MySQL.Repositories
             if (string.IsNullOrEmpty(email))
                 throw new ArgumentNullException(nameof(email));
 
-            if (Set.Local.FirstOrDefault(u => u.Email == email) != null)
-                return true;
-
-            return await Set
-                .Select(u => new { Email = u.Email })
-                .FirstOrDefaultAsync(u => u.Email == email, cancel).ConfigureAwait(false) != null;
+            return await Set.AnyAsync(cancel).ConfigureAwait(false);
         }
 
         public async Task<T> GetByEmail(string email, CancellationToken cancel = default)

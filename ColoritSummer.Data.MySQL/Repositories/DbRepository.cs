@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace ColoritSummer.Data.MySQL.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : Entity, new()
+    public class DbRepository<T> : IRepository<T> where T : Entity, new()
     {
         private readonly ColoritSummerDbContext _db;
         protected DbSet<T> Set { get; }
 
-        public Repository(ColoritSummerDbContext context)
+        public DbRepository(ColoritSummerDbContext context)
         {
             _db = context;
             Set = _db.Set<T>();
