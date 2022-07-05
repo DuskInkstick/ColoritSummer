@@ -24,7 +24,7 @@ namespace ColoritSummer.Data.MySQL.Repositories
 
         public async Task<T> Add(T item, CancellationToken cancel = default)
         {
-            if (item is null) throw new ArgumentNullException(nameof(item));
+            if (item == null) throw new ArgumentNullException(nameof(item));
 
             await _db.AddAsync(item, cancel).ConfigureAwait(false);
             await _db.SaveChangesAsync().ConfigureAwait(false);
@@ -36,13 +36,13 @@ namespace ColoritSummer.Data.MySQL.Repositories
         {
             var item = Set.Local.FirstOrDefault(i => i.Id == id);
 
-            if (item is null)
+            if (item == null)
                 item = await Set
                    .Select(i => new T { Id = i.Id })
                    .FirstOrDefaultAsync(i => i.Id == id, cancel)
                    .ConfigureAwait(false);
 
-            if (item is null)
+            if (item == null)
                 return null;
 
             _db.Remove(item);
