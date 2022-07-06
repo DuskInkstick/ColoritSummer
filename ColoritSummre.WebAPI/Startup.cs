@@ -24,13 +24,10 @@ namespace ColoritSummer.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ColoritSummer.API", Version = "v1" });
             });
-
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
