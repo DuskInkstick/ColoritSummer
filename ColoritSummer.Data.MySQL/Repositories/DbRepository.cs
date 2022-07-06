@@ -82,8 +82,14 @@ namespace ColoritSummer.Data.MySQL.Repositories
         {
             if (item is null) throw new ArgumentNullException(nameof(item));
 
-            _db.Update(item);
+            var any = await Set.FindAsync(new object[] { item.Id }, cancel).ConfigureAwait(false);
+            if (any == null)
+                return null;
 
+            _db.Entry(any).State = EntityState.Detached;
+
+            _db.Update(item);
+            await _db.SaveChangesAsync(cancel).ConfigureAwait(false);
             return item;
         }
     }
