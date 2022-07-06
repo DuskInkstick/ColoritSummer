@@ -2,8 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ColoritSummer.WPF"
-             StartupUri="MainWindow.xaml">
+             xmlns:vm="clr-namespace:ColoritSummer.WPF.ViewModels"
+             StartupUri="View/Windows/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <vm:ViewModelsLocator x:Key="VmLocator"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
