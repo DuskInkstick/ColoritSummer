@@ -8,7 +8,7 @@ namespace ColoritSummer.TestConsole
 {
     internal class Programm
     {
-        private static IHost _hosting;
+        private static IHost? _hosting;
         public static IHost Hosting => _hosting ??= CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
         public static IServiceProvider Services => Hosting.Services;
 
