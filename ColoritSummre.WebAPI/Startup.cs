@@ -17,13 +17,15 @@ namespace ColoritSummer.WebAPI
             services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
             services.AddScoped(typeof(IUserRepository<>), typeof(DbUserRepository<>));
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ColoritSummer.API", Version = "v1" });
             });
 
-            services.AddAutoMapper(typeof(Startup));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ColoritSummer.Interfaces\ColoritSummer.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ColoritSummer.WebAPI.Controllers.Base
 {
     [ApiController, Route("api/[controller]")]
-    public class MappedEntityController<T, TBase> : ControllerBase
+    public abstract class MappedEntityController<T, TBase> : ControllerBase
          where T : IEntity
          where TBase : IEntity
     {
@@ -34,10 +34,10 @@ namespace ColoritSummer.WebAPI.Controllers.Base
         public async Task<IActionResult> GetAll()
             => Ok(GetItem(await _repository.GetAll()));
 
-        [HttpGet("items[[{Skip:int}:{Count:int}]]")]
+        [HttpGet("items[[{skip:int}/{count:int}]]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<T>>> Get(int Skip, int Count) =>
-            Ok(GetItem(await _repository.Get(Skip, Count)));
+        public async Task<ActionResult<IEnumerable<T>>> Get(int skip, int count) =>
+            Ok(GetItem(await _repository.Get(skip, count)));
 
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
