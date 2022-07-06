@@ -47,7 +47,7 @@ namespace ColoritSummery.WebAPIClient.Repository
 
         public async Task<IEnumerable<T>> Get(int skip, int count, CancellationToken cancel = default)
         {
-            return await _client.GetFromJsonAsync<IEnumerable<T>>($"items[{skip}:{count}]", cancel).ConfigureAwait(false);
+            return await _client.GetFromJsonAsync<IEnumerable<T>>($"items[{skip}/{count}]", cancel).ConfigureAwait(false);
         }
 
         public async Task<IEnumerable<T>> GetAll(CancellationToken cancel = default)
