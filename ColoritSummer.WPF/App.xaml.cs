@@ -25,6 +25,7 @@ namespace ColoritSummer.WPF
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
             services.AddScoped<MainWindowViewModel>();
+            services.AddScoped<LoginWindowViewModel>();
 
             services.AddHttpClient<IRepository<UserInfo>, WebRepository<UserInfo>>(client =>
                 client.BaseAddress = new Uri($"{host.Configuration["WebAPI"]}api/Users/"));
