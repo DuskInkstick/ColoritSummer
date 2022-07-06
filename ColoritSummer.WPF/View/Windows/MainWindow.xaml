@@ -8,6 +8,8 @@
         Title="{Binding Title}" Height="450" Width="800"
         DataContext="{Binding MainWindowViewModel, Source={StaticResource ResourceKey=VmLocator}}">
     <Grid>
-        <TextBox Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel>
+            <Button Content="Регистрация авторизация" Command="{Binding OpenLoginCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>
