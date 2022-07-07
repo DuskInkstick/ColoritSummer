@@ -6,5 +6,6 @@ namespace ColoritSummer.WPF.ViewModels
     {
         public MainWindowViewModel MainWindowViewModel => App.Services.GetRequiredService<MainWindowViewModel>();
         public LoginWindowViewModel LoginWindowViewModel => App.Services.GetRequiredService<LoginWindowViewModel>();
+        public RegistrationWindowViewModel RegistrationWindowViewModel => App.Services.GetRequiredService<RegistrationWindowViewModel>();
     }
 }

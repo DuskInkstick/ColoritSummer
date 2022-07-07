@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ColoritSummer.WPF"
              xmlns:vm="clr-namespace:ColoritSummer.WPF.ViewModels"
+             xmlns:cvt="clr-namespace:ColoritSummer.WPF.Infrastructure.Converters"
              StartupUri="View/Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelsLocator x:Key="VmLocator"/>
+            <cvt:MultiValueConverter x:Key="MultiValueConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -25,6 +25,8 @@ namespace ColoritSummer.WPF.ViewModels
         public ICommand OpenLoginCommand { get; }
         private bool CanOpenLoginCommandExecute(object? p) => true;
         private void OnOpenLoginCommandExecuted(object? p) => new LoginWindow().ShowDialog();
+
+        public ICommand OpenRegistrationCommand { get; }
         #endregion
 
         #endregion
@@ -33,6 +35,7 @@ namespace ColoritSummer.WPF.ViewModels
         {
             #region Инициализация комманд
             OpenLoginCommand = new LambdaCommand(OnOpenLoginCommandExecuted, CanOpenLoginCommandExecute);
+            OpenRegistrationCommand = new LambdaCommand(p => new RegistrationWindow().ShowDialog());
             #endregion
         }
 
