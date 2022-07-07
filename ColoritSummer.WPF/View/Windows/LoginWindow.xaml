@@ -25,12 +25,13 @@
                        FontSize="28"/>
                 <StackPanel Grid.Row="1" VerticalAlignment="Top">
                     <TextBlock Text="Адрес электронной почты" FontSize="14" Margin="0 4"/>
-                    <TextBox Height="28" Text="{Binding Email}" Width="250" HorizontalAlignment="Left" FontSize="16" Margin="0 0 0 8"/>
+                    <TextBox Height="28" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="250" HorizontalAlignment="Left" FontSize="16" Margin="0 0 0 8"/>
                     <TextBlock Text="Пароль" FontSize="14" Margin="0 4"/>
-                    <TextBox Height="28" Text="{Binding Password}" Width="250" HorizontalAlignment="Left" FontSize="16"/>
+                    <PasswordBox x:Name="Pass" Height="28" Width="250" HorizontalAlignment="Left" FontSize="16"/>
                 </StackPanel>
                 <Button Grid.Row="2" Command="{Binding TryLoginCommand}" Content="Войти" FontSize="18"
-                    Width="165" HorizontalAlignment="Left" Margin="0 4"/>
+                    Width="165" HorizontalAlignment="Left" Height="48" VerticalAlignment="Bottom"
+                        CommandParameter="{Binding ElementName=Pass}"/>
 
             </Grid>
             <Canvas Grid.Column="1" Background="MidnightBlue"  />
@@ -43,7 +44,8 @@
                 <TextBlock Grid.Row="0" Text="Пробный периуд*" FontSize="16" VerticalAlignment="Center" Foreground="AliceBlue"/>
                 <TextBlock Grid.Row="1" Text="{Binding InfoField}" FontSize="12"
                            TextWrapping="Wrap" VerticalAlignment="Center" Foreground="AliceBlue"/>
-                <Button Grid.Row="2" Command="{Binding RegistrationCommand}" Margin="0 4" Content="Регистрация" FontSize="18"/>
+                <Button Grid.Row="2" Command="{Binding RegistrationCommand}" Content="Регистрация" 
+                        FontSize="18"  Height="48" VerticalAlignment="Bottom"/>
 
             </Grid>
         </Grid>

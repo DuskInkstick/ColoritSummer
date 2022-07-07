@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ColoritSummer.WPF.ViewModels
@@ -13,14 +14,8 @@ namespace ColoritSummer.WPF.ViewModels
     {
         #region Поля и свойства
 
-        private string? _password;
-        public string? Password
-        {
-            get => _password;
-            set => Set(ref _password, value);
-        }
-
         private string? _email;
+        /// <summary>Электронная почта пользователя </summary>
         public string? Email
         {
             get => _email;
@@ -28,6 +23,7 @@ namespace ColoritSummer.WPF.ViewModels
         }
 
         private string _infoField = "Зарегестрируйтесь пажалуйста очень надо";
+        /// <summary>Текст уведомляющий пользователя о текущем статусе программы </summary>
         public string InfoField
         {
             get => _infoField;
@@ -40,11 +36,12 @@ namespace ColoritSummer.WPF.ViewModels
         /// <summary>Комманда для запроса на авторизацию </summary>
         public ICommand TryLoginCommand { get; }
         private bool CanTryLoginCommandExecute(object? p) =>
-            string.IsNullOrEmpty(Password) == false
-            && string.IsNullOrEmpty(Email) == false;
+            string.IsNullOrEmpty(Email) == false;
 
         private void OnTryLoginCommandExecuted(object? p)
         {
+            var pass = p as PasswordBox;
+
         }
 
         /// <summary>Комманда для запроса на регистрацию </summary>
