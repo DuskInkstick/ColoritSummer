@@ -4,11 +4,11 @@ using ColoritSummer.Models.Entities;
 
 namespace ColoritSummer.WebAPI.Infrastructure.Automapper
 {
-    public class UserMap : Profile
+    public class ProductCardMap : Profile
     {
-        public UserMap()
+        public ProductCardMap()
         {
-            CreateMap<User, UserInfo>().ReverseMap();
+            CreateMap<ProductCard, ProductCardInfo>().ReverseMap();
         }
     }
 }

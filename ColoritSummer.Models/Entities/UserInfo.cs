@@ -12,10 +12,13 @@ namespace ColoritSummer.Models.Entities
         public string Email { get; set; }
         public string Description { get; set; }
         public string Password { get; set; }
+        public string OrganizationName { get; set; }
+        public string City { get; set; }
 
         public override string ToString()
         {
-            return $"Id:{Id} Name:{Name} Email:{Email} Desc:{Description} Password:{Password}";
+            return $"Id:{Id}, Name:{Name}, Email:{Email}, Desc:{Description}, Password:{Password}, " +
+                $"OrganizationName:{OrganizationName}, City:{City}";
         }
     }
 }

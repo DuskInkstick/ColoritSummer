@@ -2,10 +2,10 @@
 
 namespace ColoritSummer.Data.MySQL.Entities
 {
-    public class User : UserEntity
+    public class ProductCard : Entity
     {
+        public string Name { get; set; }
         public string Description { get; set; }
-        public string OrganizationName { get; set; }
-        public string City { get; set; }
+        public decimal Price { get; set; }
     }
 }

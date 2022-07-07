@@ -9,5 +9,8 @@ namespace ColoritSummer.Interfaces.Entities
     {
         [Required]
         string Email { get; }
+
+        [Required]
+        string Password { get; }
     }
 }

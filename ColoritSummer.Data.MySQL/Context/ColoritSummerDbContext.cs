@@ -10,6 +10,7 @@ namespace ColoritSummer.Data.MySQL.Context
     public class ColoritSummerDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<ProductCard> ProductCards { get; set; }
 
         public ColoritSummerDbContext(DbContextOptions<ColoritSummerDbContext> optionsBuilder)
             : base(optionsBuilder) { }
