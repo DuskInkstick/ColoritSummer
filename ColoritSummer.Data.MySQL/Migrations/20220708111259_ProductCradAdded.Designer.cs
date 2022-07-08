@@ -2,6 +2,7 @@
 using ColoritSummer.Data.MySQL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ColoritSummer.Data.MySQL.Migrations
 {
     [DbContext(typeof(ColoritSummerDbContext))]
-    partial class ColoritSummerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220708111259_ProductCradAdded")]
+    partial class ProductCradAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
