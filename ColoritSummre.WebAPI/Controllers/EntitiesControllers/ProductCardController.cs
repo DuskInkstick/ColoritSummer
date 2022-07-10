@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ColoritSummer.WebAPI.Controllers.EntitiesControllers
 {
-    public class UsersController : MappedEntityController<UserInfo, User>
+    public class ProductCardController : MappedEntityController<ProductCardInfo, ProductCard>
     {
-        public UsersController(IUserRepository<User> repository, IMapper mapper) : base(repository, mapper) { }
-
-
+        public ProductCardController(IRepository<ProductCard> repository, IMapper mapper) : base(repository, mapper)
+        {
+        }
     }
 }

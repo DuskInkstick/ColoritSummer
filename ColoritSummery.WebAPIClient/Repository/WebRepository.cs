@@ -8,10 +8,12 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using ColoritSummer.Interfaces.Auth;
+using System.Net.Http.Headers;
 
 namespace ColoritSummery.WebAPIClient.Repository
 {
-    public class WebRepository<T> : IRepository<T> where T : IEntity
+    public class WebRepository<T> : IAuthorizationRequired, IRepository<T> where T : IEntity
     {
         private HttpClient _client;
         public WebRepository(HttpClient client)
@@ -21,6 +23,7 @@ namespace ColoritSummery.WebAPIClient.Repository
 
         public async Task<T> Add(T item, CancellationToken cancel = default)
         {
+
             var response = await _client.PostAsJsonAsync("", item, cancel).ConfigureAwait(false);
             var result = await response
                 .EnsureSuccessStatusCode()
@@ -75,5 +78,11 @@ namespace ColoritSummery.WebAPIClient.Repository
               .ConfigureAwait(false);
             return result;
         }
+
+        public void SetAccesToken(string token)
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
+
     }
 }

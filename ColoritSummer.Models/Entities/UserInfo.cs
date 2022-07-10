@@ -17,7 +17,7 @@ namespace ColoritSummer.Models.Entities
 
         public override string ToString()
         {
-            return $"Id:{Id}, Name:{Name}, Email:{Email}, Desc:{Description}, Password:{Password}, " +
+            return $"Id:{Id}, Name:{Name}, Login:{Email}, Desc:{Description}, Password:{Password}, " +
                 $"OrganizationName:{OrganizationName}, City:{City}";
         }
     }

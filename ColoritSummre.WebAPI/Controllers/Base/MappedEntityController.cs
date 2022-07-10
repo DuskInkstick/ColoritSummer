@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using ColoritSummer.Interfaces.Entities;
 using ColoritSummer.Interfaces.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ColoritSummer.WebAPI.Controllers.Base
 {
     [ApiController, Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public abstract class MappedEntityController<T, TBase> : ControllerBase
          where T : IEntity
          where TBase : IEntity

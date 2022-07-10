@@ -32,7 +32,7 @@ namespace ColoritSummer.Data.MySQL.Repositories
             if (string.IsNullOrEmpty(email))
                 throw new ArgumentNullException(nameof(email));
 
-            return await Set.AnyAsync(cancel).ConfigureAwait(false);
+            return await Set.AnyAsync(u => u.Email == email, cancel).ConfigureAwait(false);
         }
 
         public async Task<T> GetByEmail(string email, CancellationToken cancel = default)

@@ -1,8 +1,11 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
+﻿using ColoritSummer.Interfaces.Auth;
 using ColoritSummer.Interfaces.Repositories;
+using ColoritSummer.Models.DTO;
 using ColoritSummer.Models.Entities;
+using ColoritSummery.WebAPIClient.Auth;
 using ColoritSummery.WebAPIClient.Repository;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace ColoritSummer.TestConsole
 {
@@ -21,7 +24,15 @@ namespace ColoritSummer.TestConsole
         {
             services.AddHttpClient<IRepository<UserInfo>, WebRepository<UserInfo>>(client => 
                 client.BaseAddress = new Uri($"{host.Configuration["WebAPI"]}api/Users/"));
+
+            services.AddHttpClient<IAuthClient<LoginInfo, RegistrationInfo>,
+                AuthClient<LoginInfo, RegistrationInfo>>(client =>
+                {
+                    client.BaseAddress = new Uri($"{host.Configuration["WebAPI"]}api/Auth/");
+                    //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "Your Oauth token");
+                });
         }
+    
 
         public static async Task Main(string[] args)
         {
@@ -31,9 +42,11 @@ namespace ColoritSummer.TestConsole
             Console.WriteLine("Старт");
 
             var userRep = Services.GetRequiredService<IRepository<UserInfo>>();
-
+            var authClient = Services.GetRequiredService<IAuthClient<LoginInfo, RegistrationInfo>>();
+            
             try
             {
+                #region Тестирование репозитория
                 /* var user = await userRep.Update(new UserInfo
                  {
                      Id = 1,
@@ -75,7 +88,32 @@ namespace ColoritSummer.TestConsole
                  }*/
                 //Console.WriteLine(await userRep.GetById(6));
                 //Console.WriteLine(await userRep.DeleteById(3));
+                #endregion
 
+                #region Тестирование авторизации и регистрации
+
+                /*var res = await authClient.Registration(new RegistrationInfo
+                {
+                    City = "Mond",
+                    OrganizationName = "Ordo Favonius",
+                    Login = "Jien",
+                    Password = "123"
+                });*/
+
+                var token = await authClient.Login(new LoginInfo
+                {
+                    Login = "Jien",
+                    Password = "123"
+                });
+
+
+                Console.WriteLine(token);
+                Console.WriteLine();
+                ((IAuthorizationRequired)userRep).SetAccesToken(token);
+                Console.WriteLine(await userRep.GetCount());
+                userRep = Services.GetRequiredService<IRepository<UserInfo>>();
+                Console.WriteLine(await userRep.GetCount());
+                #endregion
             }
             catch (Exception ex)
             {
